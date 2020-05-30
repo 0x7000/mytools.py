@@ -8,16 +8,16 @@ def main():
     dosya = ADRES.split("/")[-1]
     tam_yol = konum+"/"+klasor
     tam_dosya = konum+"/"+klasor+"/"+dosya
-
     if not os.path.exists(tam_yol):
         os.mkdir(klasor)
     komut = "wget -q " + ADRES + " -P " + '"'+tam_yol+'"'
-    print(komut)
-    os.system(komut)
+    if not os.path.exists(tam_dosya):
+        os.system(komut)
     if os.path.exists(tam_dosya):
-        deger = os.stat(tam_dosya).st_size
-        if deger == 0:
+        boyut = os.stat(tam_dosya).st_size
+        if boyut == 0:
             os.remove(tam_dosya)
+        print(boyut)
     else:
         print("dosya yok")
 
