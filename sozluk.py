@@ -60,8 +60,19 @@ def mesajlar(html):
         mesaj = h.handle(str(i)).strip().replace("\n", " ")
         # birden fazla boşluk işaretini tek boşluğa çevir.
         mesaj = re.sub(r"\s+", " ", mesaj)
-        dizi.append(mesaj)
+        yasak = True
+        regx = re.compile(r'http[s]?:.+')  # bunu test etmedim.
+        for x in YASAKLI:
+            if x in mesaj:
+                yasak = False
+                break
+            if regx.search(mesaj):
+                yasak = False
+                break
+        if yasak:
+            dizi.append(mesaj)
     return dizi
 
 
+YASAKLI = ["çaylak", "yazar", "user", "çaylak.", "yazar.", "user."]
 AGENT = {'User-Agent': "Mozilla/5.0 (X11; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0"}
