@@ -26,7 +26,7 @@ akşam,isim
 alan,isim
 alınmak,fiil
 alışveriş,isim
-Allah,isim
+allah,isim
 almak,fiil
 altın,isim
 alt,sıfat
@@ -825,7 +825,7 @@ tamam,sıfat
 tam,sıfat
 tane,isim
 tanımak,fiil
-Tanrı,isim
+tanrı,isim
 taraf,isim
 tarih,isim
 tarz,isim

@@ -10,7 +10,7 @@ def add(ask, ans):
     db.close()
 
 
-def control(aranan):
+def control(aranan):  # aranan strip edilmeli.
     dizi = []
     db = sql.connect("sozluk.db")
     db.text_factory = str
@@ -23,4 +23,4 @@ def control(aranan):
             dizi.append(i[0])
         return dizi
     else:
-        return None
+        return []

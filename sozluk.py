@@ -61,16 +61,13 @@ def mesajlar(html):
         # birden fazla boşluk işaretini tek boşluğa çevir.
         mesaj = re.sub(r"\s+", " ", mesaj)
         yasak = True
-        regx = re.compile(r'http[s]?:.+')  # bunu test etmedim.
         for x in YASAKLI:
             if x in mesaj:
                 yasak = False
                 break
-            if regx.search(mesaj):
-                yasak = False
-                break
         if yasak:
-            dizi.append(mesaj)
+            if len(mesaj) <= 1024:
+                dizi.append(mesaj)
     return dizi
 
 
