@@ -6,10 +6,11 @@ def indir(adres, aranan):
     dosya = adres.split("/")[-1]
     tam_yol = konum+"/pics/"+aranan
     tam_dosya = konum+"/pics/"+aranan+"/"+dosya
+    print(tam_dosya)
     if not os.path.exists(tam_yol):
         os.mkdir(tam_yol)
-    komut = "wget --tries=1 --timeout=1 --dns-timeout=1 -q " + adres + " -P " + '"'+tam_yol+'"'
     if not os.path.exists(tam_dosya):
+        komut = "wget -nc --tries=1 --timeout=1 --dns-timeout=1 -q " + adres + " -P " + '"' + tam_yol + '"'
         os.system(komut)
     if os.path.exists(tam_dosya):
         boyut = os.stat(tam_dosya).st_size
